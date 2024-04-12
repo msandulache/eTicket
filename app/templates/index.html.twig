@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Welcome!{% endblock %}
+
+{% block body %}
+
+    <section class="pt-20 pb-48">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center text-center mb-24">
+                <div class="w-full lg:w-6/12 px-4">
+                    <h2 class="text-4xl font-semibold">Now playing</h2>
+                    <p class="text-lg leading-relaxed m-4 text-gray-600">
+                        According to the National Oceanic and Atmospheric
+                        Administration, Ted, Scambos, NSIDClead scentist, puts the
+                        potentially record maximum.
+                    </p>
+                </div>
+            </div>
+            <div class="flex flex-wrap">
+                {% for movie in movies %}
+                    <div class="w-full md:w-4/12 px-4 text-center">
+                        <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
+                            <a href="/movie/{{ movie.id }}" class="block h-full w-full">
+                                <img class="w-full object-cover" alt="featured image" src="{{ movie.poster_path }}"/>
+                            </a>
+
+                            <div class="w-full bg-white p-3">
+                                <span class="text-md text-xl font-medium text-red-500 hover:text-red-300"
+                                      data-tooltip="Add to wishlist" data-tooltip-position="top">
+                                    <i class="fa-regular fa-heart"></i>
+                                </span>
+
+                                {% if movie.trailer is not empty %}
+                                    <button class="js-modal-btn" data-video-id="{{ movie.trailer }}">
+                                <span class="text-md text-xl font-medium text-indigo-500 hover:text-indigo-300"
+                                      data-tooltip="View trailer" data-tooltip-position="top">
+                                    <i class="fa-brands fa-youtube"></i>
+                                </span>
+                                    </button>
+                                {% endif %}
+
+                                <a href="/movie/{{ movie.id }}" class="block h-full w-full">
+                                    <p class="mb-2 mt-2 font-medium text-gray-800">{{ movie.title }}</p>
+                                </a>
+
+                                <div class="justify-starts flex flex-wrap items-center">
+                                    {% for genre in movie.genres %}
+                                        <div class="mr-2 mt-1 rounded-2xl bg-blue-100 py-1 px-2 text-xs text-gray-600">
+                                            #{{ genre.name }}</div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

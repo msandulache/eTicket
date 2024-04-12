@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class QuoteController extends AbstractController {
 
-    #[Route('/', name: 'index')]
+    #[Route('/sds', name: 'index')]
     public function index(
         QuoteRepository $quoteRepository
     )
