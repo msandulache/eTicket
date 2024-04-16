@@ -1,7 +1,15 @@
 @import "@fortawesome/fontawesome-free/css/all.css";
 @import "modal-video/css/modal-video.css";
+@import "seatchart/dist/seatchart.css";
+
+.economy {
+    color: white;
+    background-color: #43aa8b;
+}
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
 
