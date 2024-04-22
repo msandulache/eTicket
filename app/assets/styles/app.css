@@ -2,9 +2,20 @@
 @import "modal-video/css/modal-video.css";
 @import "seatchart/dist/seatchart.css";
 
+
 .economy {
     color: white;
     background-color: #43aa8b;
+}
+
+.first-class {
+    color: white;
+    background-color: #277da1;
+}
+
+.reduced {
+    color: white;
+    background-color: #f8961e;
 }
 
 @tailwind base;
