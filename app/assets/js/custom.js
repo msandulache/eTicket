@@ -5,10 +5,10 @@ new ModalVideo('.js-modal-btn');
 
 const Seatchart = require('seatchart/dist/seatchart.min');
 
+import $ from 'jquery';
 
 var seatContainer = document.getElementById("seats-container");
 if(seatContainer) {
-    console.log('este');
     var options = {
         map: {
             rows: 10,
@@ -33,14 +33,14 @@ if(seatContainer) {
                 },
             },
             disabledSeats: [
-                { row: 0, col: 0 },
-                { row: 0, col: 9 },
+                {row: 0, col: 0},
+                {row: 0, col: 9},
             ],
             reservedSeats: [
-                { row: 0, col: 3 },
-                { row: 0, col: 4 },
+                {row: 0, col: 3},
+                {row: 0, col: 4},
             ],
-            selectedSeats: [{ row: 0, col: 5 }, { row: 0, col: 6 }],
+            selectedSeats: [{row: 0, col: 5}, {row: 0, col: 6}],
             rowSpacers: [3, 7],
             columnSpacers: [5],
         },
@@ -48,7 +48,23 @@ if(seatContainer) {
 
     var sc = new Seatchart(seatContainer, options);
     sc.addEventListener('submit', function handleSubmit(e) {
-        alert('Total: ' + e.total + '€');
+        $.ajax({
+            url:        '/checkout',
+            type:       'POST',
+            dataType:   'json',
+            async:      true,
+            data: {
+                cart: sc.getCart(),
+                cartTotal: sc.getCartTotal()
+            },
+            success: function(data, status) {
+
+            },
+            error : function(xhr, textStatus, errorThrown) {
+                alert('Ajax request failed.');
+            }
+        });
     });
+
 }
 
