@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <section class="relative py-20">
+        <div class="antialiased text-gray-900 px-6">
+            <div class="max-w-xl mx-auto py-12 divide-y md:max-w-4xl">
+                <div class="py-8">
+                    <h1 class="text-4xl font-bold">Register</h1>
+                </div>
+
+                {{ form_errors(registrationForm) }}
+                {{ form_start(registrationForm) }}
+
+                    <div class="mt-8 max-w-md">
+                        <div class="grid grid-cols-1 gap-6">
+                            {{ form_row(registrationForm.email, {'attr': {'class': 'mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50'}}) }}
+                            {{ form_row(registrationForm.firstname, {'attr': {'class': 'mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50'}}) }}
+                            {{ form_row(registrationForm.lastname, {'attr': {'class': 'mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50'}}) }}
+                            {{ form_row(registrationForm.plainPassword, {
+                                'label': 'Password',
+                                'attr': {'class': 'mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50'}
+                            }) }}
+                            {{ form_row(registrationForm.agreeTerms, {'attr': {'class': 'rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-offset-0 focus:ring-indigo-200 focus:ring-opacity-50'}}) }}
+                            <button type="submit" class="btn bg-blue-400 text-gray-800 active:bg-gray-100 text-xs font-bold uppercase px-4 py-2 rounded  lg:mr-1 lg:mb-0 ml-3 mb-3">Register</button>
+                        </div>
+                    </div>
+
+                {{ form_end(registrationForm) }}
+            </div>
+        </div>
+    </section>
+{% endblock %}
