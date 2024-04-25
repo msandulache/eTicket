@@ -31,20 +31,17 @@
                             type="button"
                     >
                         <i class="flex fab fa-twitter"></i></button
-                    >
-                    <button
+                    ><button
                             class="bg-white text-blue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 p-3"
                             type="button"
                     >
                         <i class="flex fab fa-facebook-square"></i></button
-                    >
-                    <button
+                    ><button
                             class="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 p-3"
                             type="button"
                     >
                         <i class="flex fab fa-dribbble"></i></button
-                    >
-                    <button
+                    ><button
                             class="bg-white text-gray-900 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 p-3"
                             type="button"
                     >
@@ -57,35 +54,35 @@
                     <div class="w-full lg:w-4/12 px-4 ml-auto">
                 <span
                         class="block uppercase text-gray-600 text-sm font-semibold mb-2"
-                >Useful Links</span
+                >Meniu</span
                 >
                         <ul class="list-unstyled">
                             <li>
                                 <a
                                         class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                                        href="https://www.creative-tim.com/presentation"
-                                >About Us</a
+                                        href="{{ path('app_home') }}"
+                                >Acasa</a
                                 >
                             </li>
                             <li>
                                 <a
                                         class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                                        href="https://blog.creative-tim.com"
-                                >Blog</a
+                                        href="#"
+                                >Tarife</a
                                 >
                             </li>
                             <li>
                                 <a
                                         class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
                                         href="https://www.github.com/creativetimofficial"
-                                >Github</a
+                                >Informatii</a
                                 >
                             </li>
                             <li>
                                 <a
                                         class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
                                         href="https://www.creative-tim.com/bootstrap-themes/free"
-                                >Free Products</a
+                                >Contact</a
                                 >
                             </li>
                         </ul>
@@ -93,35 +90,35 @@
                     <div class="w-full lg:w-4/12 px-4">
                 <span
                         class="block uppercase text-gray-600 text-sm font-semibold mb-2"
-                >Other Resources</span
+                >Alte resurse</span
                 >
                         <ul class="list-unstyled">
                             <li>
                                 <a
                                         class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                                        href="https://github.com/creativetimofficial/argon-design-system/blob/master/LICENSE.md"
-                                >MIT License</a
+                                        href="#"
+                                >Termeni si conditii</a
                                 >
                             </li>
                             <li>
                                 <a
                                         class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                                        href="https://creative-tim.com/terms"
-                                >Terms &amp; Conditions</a
+                                        href="#"
+                                >Protectia datelor</a
                                 >
                             </li>
                             <li>
                                 <a
                                         class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                                        href="https://creative-tim.com/privacy"
-                                >Privacy Policy</a
+                                        href="#"
+                                >Politica cookie</a
                                 >
                             </li>
                             <li>
                                 <a
                                         class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                                        href="https://creative-tim.com/contact-us"
-                                >Contact Us</a
+                                        href="#"
+                                >Protectia Consumatorului - A.N.P.C.</a
                                 >
                             </li>
                         </ul>
@@ -129,13 +126,13 @@
                 </div>
             </div>
         </div>
-        <hr class="my-6 border-gray-400"/>
+        <hr class="my-6 border-gray-400" />
         <div
                 class="flex flex-wrap items-center md:justify-between justify-center"
         >
             <div class="w-full md:w-4/12 px-4 mx-auto text-center">
                 <div class="text-sm text-gray-600 font-semibold py-1">
-                    Copyright © 2019 Tailwind Starter Kit by
+                    Copyright © {{ 'now' | date('Y') }} Tailwind Starter Kit by
                     <a
                             href="https://www.creative-tim.com"
                             class="text-gray-600 hover:text-gray-900"
@@ -146,12 +143,3 @@
         </div>
     </div>
 </footer>
-<script>
-    function toggleNavbar(collapseID) {
-        document.getElementById(collapseID).classList.toggle("hidden");
-        document.getElementById(collapseID).classList.toggle("block");
-    }
-</script>
-
-{{ encore_entry_script_tags('app') }}
-{{ encore_entry_script_tags('custom') }}

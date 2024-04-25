@@ -4,161 +4,54 @@
 
 {% block body %}
 
+    <img style="width: 100px"
+
+            src="{{ movie['poster_path'] }}"
+    />
+
+    <h3 class="text-3xl font-semibold">{{ movie['title'] }}</h3>
+    <p class="mt-4 text-lg leading-relaxed text-gray-600">
+        {{ movie['overview'] }}
+    </p>
+
+    {% for genre in movie['genres'] %}
+        {{ genre.name }}{% if not loop.last %}, {% endif %}
+    {% endfor %}
 
 
+    {% for actor in movie['cast'] %}
 
 
-    <section class="relative py-20">
-
-        <div class="container mx-auto px-4">
-            <div class="items-center flex flex-wrap">
-                <div class="w-full md:w-4/12 ml-auto mr-auto px-4">
-                    <img
-                            alt="..."
-                            class="max-w-full rounded-lg shadow-lg"
-                            src="{{ movie['poster_path'] }}"
-                    />
-                    <div class="flex justify-center gap-3 mt-6">
-                        <a target="_blank" href="https://www.facebook.com/{{ movie['externalIds']['facebook_id'] }}"
-                           class="text-primary hover:text-white hover:bg-primary h-8 w-8 rounded-full border border-primary flex items-center justify-center">
-                            <i class="fa-brands fa-facebook-f"></i>
-                        </a>
-                        <a target="_blank" href="https://twitter.com/{{ movie['externalIds']['twitter_id'] }}"
-                           class="text-primary hover:text-white hover:bg-primary h-8 w-8 rounded-full border border-primary flex items-center justify-center">
-                            <i class="fa-brands fa-twitter"></i>
-                        </a>
-                        <a target="_blank" href="https://www.instagram.com/{{ movie['externalIds']['instagram_id'] }}"
-                           class="text-primary hover:text-white hover:bg-primary h-8 w-8 rounded-full border border-primary flex items-center justify-center">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="w-full md:w-5/12 ml-auto mr-auto px-4">
-                    <div class="md:pr-12">
-                        <!-- <div
-                                class="text-pink-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-pink-300"
-                        >
-                            <i class="fas fa-heart text-xl"></i>
-                        </div>-->
-                        <div class="flex items-center  mb-4">
-                            <span class="star-rating" data-rating="{{ movie['vote_average']/2 }}"></span>
-                            <span class="text-rating"></span>
-                            <p class="ms-1 text-sm font-medium text-gray-500 dark:text-gray-400">{{ movie['vote_average']|number_format(1) }}</p>
-                            <p class="ms-1 text-sm font-medium text-gray-500 dark:text-gray-400">out of</p>
-                            <p class="ms-1 text-sm font-medium text-gray-500 dark:text-gray-400">10</p>
-                            <div class="text-xs text-gray-500 ml-3">({{ movie['vote_count'] }} votes)</div>
-                        </div>
-
-                        <h3 class="text-3xl font-semibold">{{ movie['title'] }}</h3>
-                        <p class="mt-4 text-lg leading-relaxed text-gray-600">
-                            {{ movie['overview'] }}
-                        </p>
-                        <ul class="list-none mt-6">
-                            <li class="py-2">
-                                <div class="flex items-center">
-                                    <div>
-                        <span
-                                class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3"
-                        ><i class="fa fa-film"></i
-                            ></span>
-                                    </div>
-                                    <div>
-                                        <h4 class="text-gray-600">
-                                            {% for genre in movie['genres'] %}
-                                                {{ genre.name }}{% if not loop.last %}, {% endif %}
-                                            {% endfor %}
-                                        </h4>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="py-2">
-                                <div class="flex items-center">
-                                    <div>
-                        <span
-                                class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3"
-                        ><i class="fa fa-star"></i
-                            ></span>
-                                    </div>
-                                    <div>
-                                        <h4 class="text-gray-600">
-                                            {% for actor in movie['cast'] %}
-
-
-                                                        <!-- <img class="inline object-cover h-10 w-10 rounded-full"
+        <!-- <img class="inline object-cover h-10 w-10 rounded-full"
                                                              src="https://image.tmdb.org/t/p/w92/{{ actor['profile_path'] }}"
                                                              alt="Image Description"/> -->
 
-                                                            {{ actor['name'] }}{% if not loop.last %}, {% endif %}
+        {{ actor['name'] }}{% if not loop.last %}, {% endif %}
 
 
 
-                                            {% endfor %}
-                                        </h4>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="py-2">
-                                <div class="flex items-center">
-                                    <div>
-                        <span
-                                class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3"
-                        ><i class="fas fa-tag"></i
-                            ></span>
-                                    </div>
-                                    <div>
-                                        <h4 class="text-gray-600">
-                                            {% for keyword in movie['keywords'] %}
-                                                {{ keyword['name'] }}{% if not loop.last %}, {% endif %}
-                                            {% endfor %}
-                                        </h4>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
+    {% endfor %}
 
-                        <div class="flex items-baseline mb-1 space-x-2 font-roboto mt-4">
-                            <p class="text-3xl text-primary font-semibold">$77</p>
-                            <p class="text-2xl text-gray-400 line-through">$55.00</p>
-                        </div>
 
-                        <div class="mt-6 flex gap-3 border-b border-gray-200 pb-5 pt-5">
-                            <a href="/seats/{{ movie.id }}"
-                               class="bg-blue-400 border border-primary text-white px-8 py-2 font-medium rounded uppercase flex items-center gap-2 hover:bg-transparent hover:text-primary transition">
-                                <i class="fa-solid fa-ticket"></i> Select seats
-                            </a>
+    {% for keyword in movie['keywords'] %}
+        {{ keyword['name'] }}{% if not loop.last %}, {% endif %}
+    {% endfor %}
 
-                            <form action="/wishlist/add" method="POST">
-                                <input type="hidden" id="movie_id" name="movie_id" value="{{ movie['id'] }}" />
-                                {#                        <input type="hidden" id="user_id" name="user_id" value="{{ app.user.id }}" />#}
-                                <button type="submit" class="border border-gray-300 text-gray-600 px-8 py-2 font-medium rounded uppercase flex items-center gap-2 hover:text-primary transition">
-                                    <i class="fa-solid fa-heart"></i> Wishlist
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- videos -->
-        <!-- <div class="container pb-16">
-            <div class="mx-auto grid max-w-screen-lg justify-left px-4  ">
-                <p class="mt-6 text-2xl font-semibold text-gray-800">Videos</p>
-                <hr class="mt-2 mb-4 border-t border-gray-300">
-                <div class="grid grid-cols-3 gap-6">
 
-                    {% for video in movie['videos'] %}
-                        <iframe src="https://www.youtube.com/embed/{{ video['key'] }}" title="YouTube video player"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowfullscreen></iframe>
-                    {% endfor %}
-                </div>
+    <div class="mt-6 flex gap-3 border-b border-gray-200 pb-5 pt-5">
+        <a href="/seats/{{ movie.id }}"
+           class="bg-blue-400 border border-primary text-white px-8 py-2 font-medium rounded uppercase flex items-center gap-2 hover:bg-transparent hover:text-primary transition">
+            <i class="fa-solid fa-ticket"></i> Select seats
+        </a>
 
-            </div>
-
-        </div> -->
-        <!-- ./videos -->
-    </section>
-
+        <form action="/wishlist/add" method="POST">
+            <input type="hidden" id="movie_id" name="movie_id" value="{{ movie['id'] }}" />
+            {#                        <input type="hidden" id="user_id" name="user_id" value="{{ app.user.id }}" />#}
+            <button type="submit" class="border border-gray-300 text-gray-600 px-8 py-2 font-medium rounded uppercase flex items-center gap-2 hover:text-primary transition">
+                <i class="fa-solid fa-heart"></i> Wishlist
+            </button>
+        </form>
+    </div>
 
 
 

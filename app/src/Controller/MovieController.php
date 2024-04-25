@@ -74,7 +74,11 @@ class MovieController extends AbstractController
     #[Route('/seats/{id}', name: 'app_seats')]
     public function seats(int $id, TheMovieDataBase $theMovieDataBase): Response
     {
-        return $this->render('seats/index.html.twig', [
+        if(empty($this->getUser())) {
+            return $this->redirectToRoute('app_login');
+        }
+
+        return $this->render('seats/profile.html.twig', [
             'movie' => $theMovieDataBase->getMovie($id),
         ]);
     }

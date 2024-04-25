@@ -8,7 +8,7 @@ const Seatchart = require('seatchart/dist/seatchart.min');
 import $ from 'jquery';
 
 var seatContainer = document.getElementById("seats-container");
-if(seatContainer) {
+if (seatContainer) {
     var options = {
         map: {
             rows: 10,
@@ -47,21 +47,25 @@ if(seatContainer) {
     };
 
     var sc = new Seatchart(seatContainer, options);
-    sc.addEventListener('submit', function handleSubmit(e) {
+    sc.addEventListener('submit', function handleSubmit() {
         $.ajax({
-            url:        '/checkout',
-            type:       'POST',
-            dataType:   'json',
-            async:      true,
+            url: '/checkout',
+            type: 'POST',
+            dataType: 'json',
+            async: true,
             data: {
                 cart: sc.getCart(),
-                cartTotal: sc.getCartTotal()
+                cartTotal: sc.getCartTotal(),
+                movie: $('#movie').text()
             },
-            success: function(data, status) {
+            success: function (data, status) {
+                window.document.location = '/stripe?booking_ref=' + data;
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                alert('Checkout failed:' + errorThrown);
 
-            },
-            error : function(xhr, textStatus, errorThrown) {
-                alert('Ajax request failed.');
+                alert(xhr.status);
+                alert(errorThrown);
             }
         });
     });

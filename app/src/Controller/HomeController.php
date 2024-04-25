@@ -9,12 +9,12 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
 {
-    #[Route('/', name: 'app_index')]
+    #[Route('/', name: 'app_home')]
     public function index(TheMovieDataBase $theMovieDataBase): Response
     {
         return $this->render('index.html.twig', [
             'title' => 'Now Playing',
-            'movies' => $theMovieDataBase->getNowPlayingMovies(6)
+            'movies' => $theMovieDataBase->getNowPlayingMovies(12)
         ]);
     }
 }

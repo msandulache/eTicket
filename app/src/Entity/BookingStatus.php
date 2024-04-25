@@ -2,11 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\OrderStatusRepository;
+use App\Repository\BookingStatusRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: OrderStatusRepository::class)]
-class OrderStatus
+#[ORM\Entity(repositoryClass: BookingStatusRepository::class)]
+class BookingStatus
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]

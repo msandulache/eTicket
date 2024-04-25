@@ -1,37 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="theme-color" content="#000000"/>
+    <meta charset="UTF-8"/>
+    <title>Hello, world!</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="description" content=""/>
+    <!-- <link rel="icon" href="favicon.png"> -->
 
-    <link rel="shortcut icon" href="./assets/img/favicon.ico"/>
-    <link
-            rel="apple-touch-icon"
-            sizes="76x76"
-            href="./assets/img/apple-icon.png"
-    />
-
-    <title>{% block title %}Welcome!{% endblock %} | eTicket</title>
     {% block stylesheets %}
         {{ encore_entry_link_tags('app') }}
     {% endblock %}
 </head>
-<body class="text-gray-800 antialiased">
+<body>
+<ul>
+    <li><a href="{{ path('app_home') }}">Acasa</a></li>
+    <li><a href="#news">Program</a></li>
+    <li><a href="#contact">Filme</a></li>
+    <li><a href="#about">Contact</a></li>
 
-{% include 'common/nav.html.twig' %}
+    {% if app.user %}
+        <li><a href="{{ path('app_user_profile') }}">Contul meu</a></li>
+        <li><a href="{{ path('app_logout') }}">Logout</a></li>
+    {% else %}
+        <li><a href="{{ path('app_login') }}">Conectare</a></li>
+    {% endif %}
 
-
-
+</ul>
 
 
 {% block body %}{% endblock %}
 
-
-
-
-
 {% include 'common/footer.html.twig' %}
+
+{{ encore_entry_script_tags('app') }}
+{{ encore_entry_script_tags('custom') }}
 
 </body>
 </html>

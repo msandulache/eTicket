@@ -11,17 +11,18 @@ use Stripe;
 class StripeController extends AbstractController
 {
     #[Route('/stripe', name: 'app_stripe')]
-    public function index(): Response
+    public function index(Request $request): Response
     {
-        return $this->render('stripe/index.html.twig', [
+        return $this->render('stripe/profile.html.twig', [
             'stripe_key' => $_ENV["STRIPE_KEY"],
+            'booking_id' => $request->get('booking_ref')
         ]);
     }
 
 
     #[Route('/stripe/create-charge', name: 'app_stripe_charge', methods: ['POST'])]
     public function createCharge(Request $request)
-    {
+    {dd($request->get('booking_id'));
         Stripe\Stripe::setApiKey($_ENV["STRIPE_SECRET"]);
         Stripe\Charge::create ([
             "amount" => 5 * 100,
@@ -29,6 +30,8 @@ class StripeController extends AbstractController
             "source" => $request->request->get('stripeToken'),
             "description" => "Binaryboxtuts Payment Test"
         ]);
+
+        //TODO here we need to generate tickets and set booking status to succesful
         $this->addFlash(
             'success',
             'Payment Successful!'
