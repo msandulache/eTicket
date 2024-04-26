@@ -3,25 +3,25 @@
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
             <div class="max-w-xl lg:max-w-lg">
-                <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Subscribe to our newsletter.</h2>
-                <p class="mt-4 text-lg leading-8 text-gray-300">Nostrud amet eu ullamco nisi aute in ad minim nostrud adipisicing velit quis. Duis tempor incididunt dolore.</p>
+                <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Aboneaza-te la newsletter!</h2>
+                <p class="mt-4 text-lg leading-8 text-gray-300">Prin completarea acestui formular esti de acord sa primesti oferte si noutati personalizate pe emailul furnizat.</p>
                 <div class="mt-6 flex max-w-md gap-x-4">
                     <label for="email-address" class="sr-only">Email address</label>
-                    <input id="email-address" name="email" type="email" autocomplete="email" required class="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6" placeholder="Enter your email">
-                    <button type="submit" class="flex-none rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Subscribe</button>
+                    <input id="email-address" name="email" type="email" autocomplete="email" required class="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6" placeholder="Adresa de email">
+                    <button type="submit" class="flex-none rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Ma abonez</button>
                 </div>
             </div>
             <dl class="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:pt-2">
                 <div class="flex flex-col items-start">
                     <p class="mt-4 font-semibold text-white">Meniu</p>
-                    <p class="mt-2 leading-7 text-gray-400">Acasa</p>
-                    <p class="mt-2 leading-7 text-gray-400">Tarife</p>
+                    <p class="mt-2 leading-7 text-gray-400"><a href="{{ path('app_home') }}">Acasa</a></p>
+                    <p class="mt-2 leading-7 text-gray-400"><a href="{{ path('app_prices') }}">Tarife</a></p>
                     <p class="mt-2 leading-7 text-gray-400">Informatii</p>
-                    <p class="mt-2 leading-7 text-gray-400">Contact</p>
+                    <p class="mt-2 leading-7 text-gray-400"><a href="{{ path('app_contact') }}">Contact</a></p>
                 </div>
                 <div class="flex flex-col items-start">
                     <p class="mt-4 font-semibold text-white">Alte resurse</p>
-                    <p class="mt-2 leading-7 text-gray-400">Termeni si conditii</p>
+                    <p class="mt-2 leading-7 text-gray-400"><a href="{{ path('app_terms_conditions') }}">Termeni si conditii</a></p>
                     <p class="mt-2 leading-7 text-gray-400">Protectia datelor</p>
                     <p class="mt-2 leading-7 text-gray-400">Politica cookie</p>
                     <p class="mt-2 leading-7 text-gray-400">Protectia Consumatorului - A.N.P.C.</p>

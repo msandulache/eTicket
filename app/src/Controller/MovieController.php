@@ -25,7 +25,7 @@ class MovieController extends AbstractController
             return $this->redirectToRoute('app_login');
         }
 
-        return $this->render('seats/index.html.twig', [
+        return $this->render('seats/prices.html.twig', [
             'movie' => $theMovieDataBase->getMovie($id),
         ]);
     }

@@ -14,7 +14,7 @@ class StripeController extends AbstractController
     #[Route('/stripe/{id}', name: 'app_stripe')]
     public function stripe(int $id, Request $request, TheMovieDataBase $theMovieDataBase): Response
     {
-        return $this->render('stripe/index.html.twig', [
+        return $this->render('stripe/prices.html.twig', [
             'stripe_key' => $_ENV["STRIPE_KEY"],
             'booking_id' => $request->get('booking_ref'),
             'movie' => $theMovieDataBase->getMovie($id),
