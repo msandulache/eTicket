@@ -33,18 +33,13 @@ class UserController extends AbstractController
             $entityManager->flush();
             // do anything else you need here, like send an email
 
-            return $this->redirectToRoute('app_user_profile_done');
+            $this->addFlash("success", "Modificarile au fost salvate cu succes.");
+
+            //return $this->redirectToRoute('app_user_profile_done');
         }
 
         return $this->render('user/profile.html.twig', [
             'userProfileForm' => $form->createView(),
-        ]);
-    }
-
-    #[Route('/user_profile_done', name: 'app_user_profile_done')]
-    public function profileSaved(): Response
-    {
-        return $this->render('user/profile_done.html.twig', [
         ]);
     }
 

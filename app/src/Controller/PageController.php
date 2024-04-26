@@ -22,4 +22,18 @@ class PageController extends AbstractController
         return $this->render('page/terms_conditions.html.twig', [
         ]);
     }
+
+    #[Route('/gdpr-info', name: 'app_gdpr_info')]
+    public function gdpr(): Response
+    {
+        return $this->render('page/gdpr_info.html.twig', [
+        ]);
+    }
+
+    #[Route('/information', name: 'app_information')]
+    public function information(): Response
+    {
+        return $this->render('page/information.html.twig', [
+        ]);
+    }
 }
