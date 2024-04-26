@@ -1,76 +1,68 @@
-<nav
-        class="top-0 absolute z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 bg-stone-800"
->
-    <div
-            class="container px-4 mx-auto flex flex-wrap items-center justify-between"
-    >
-        <div
-                class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start"
-        >
-            <a
-                    class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white"
-                    href="/"
-            >eTicket.</a
-            ><button
-                    class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
-                    type="button"
-                    onclick="toggleNavbar('example-collapse-navbar')"
-            >
-                <i class="text-white fas fa-bars"></i>
-            </button>
-        </div>
-        <div
-                class="lg:flex flex-grow items-center bg-white lg:bg-transparent lg:shadow-none hidden"
-                id="example-collapse-navbar"
-        >
-            <ul class="flex flex-col lg:flex-row list-none mr-auto">
-                <li class="flex items-center">
-                    <a
-                            class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                            href="https://www.creative-tim.com/learning-lab/tailwind-starter-kit#/landing"
-                    ><i
-                                class="lg:text-gray-300 text-gray-500 far fa-file-alt text-lg leading-lg mr-2"
-                        ></i>
-                        Docs</a
-                    >
-                </li>
-            </ul>
-            <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
+<nav class="bg-gray-800">
+    <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+        <div class="relative flex h-16 items-center justify-between">
+            <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+                <!-- Mobile menu button-->
+                <button type="button" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+                    <span class="absolute -inset-0.5"></span>
+                    <span class="sr-only">Open main menu</span>
+                    <!--
+                      Icon when menu is closed.
+
+                      Menu open: "hidden", Menu closed: "block"
+                    -->
+                    <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                    <!--
+                      Icon when menu is open.
+
+                      Menu open: "block", Menu closed: "hidden"
+                    -->
+                    <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+                <div class="flex flex-shrink-0 items-center">
+                    <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
+                </div>
+                <div class="hidden sm:ml-6 sm:block">
+                    <div class="flex space-x-4">
+                        <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                        <a href="{{ path('app_home') }}" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Acasa</a>
+                        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Program</a>
+                        <a href="{{ path('app_movies') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Filme</a>
+                        <a href="{{ path('app_contact') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Contact</a>
+                    </div>
+                </div>
+            </div>
+            <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 text-gray-400">
                 {% if app.user %}
-                    <li class="flex items-center">
-                        <button
-                                class="bg-white text-gray-800 active:bg-gray-100 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3"
-                                type="button"
-                                style="transition: all 0.15s ease 0s;"
-                        >
-                            <i class="fas fa-user"></i> {{ app.user.firstname }}
-                        </button>
-                        <a href="/{{ path('app_logout') }}"
-                           class="bg-white text-gray-800 active:bg-gray-100 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3"
-                           style="transition: all 0.15s ease 0s;"
-                        >
-                            <i class="fas fa-sign-out"></i> Log out
-                        </a>
-                    </li>
+                    <a href="{{ path('app_user_profile') }}" class="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                        Contul meu
+                    </a> |
+                    <a href="{{ path('app_logout') }}" class="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                        Iesire din cont
+                    </a>
                 {% else %}
-                    <li class="flex items-center">
-                        <a href="/login"
-                           class="bg-white text-gray-800 active:bg-gray-100 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3"
-                           style="transition: all 0.15s ease 0s;"
-                        >
-                            <i class="fas fa-sign-in"></i> Log in
-                        </a>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="/register"
-                           class="bg-white text-gray-800 active:bg-gray-100 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3"
-                           style="transition: all 0.15s ease 0s;"
-                        >
-                            <i class="fas fa-user-plus"></i> Register
-                        </a>
-                    </li>
+                    <a href="{{ path('app_login') }}" class="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                        Conectare
+                    </a>
                 {% endif %}
-            </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile menu, show/hide based on menu state. -->
+    <div class="sm:hidden" id="mobile-menu">
+        <div class="space-y-1 px-2 pb-3 pt-2">
+            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+            <a href="{{ path('app_home') }}" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Acasa</a>
+            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Program</a>
+            <a href="{{ path('app_movies') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Filme</a>
+            <a href="{{ path('app_contact') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Contact</a>
         </div>
     </div>
 </nav>

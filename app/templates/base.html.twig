@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
-    <title>Hello, world!</title>
+    <title>{% block title %}{% endblock %} | eTicket. </title>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="description" content=""/>
     <!-- <link rel="icon" href="favicon.png"> -->
@@ -12,28 +12,15 @@
     {% endblock %}
 </head>
 <body>
-<ul>
-    <li><a href="{{ path('app_home') }}">Acasa</a></li>
-    <li><a href="#news">Program</a></li>
-    <li><a href="#contact">Filme</a></li>
-    <li><a href="#about">Contact</a></li>
 
-    {% if app.user %}
-        <li><a href="{{ path('app_user_profile') }}">Contul meu</a></li>
-        <li><a href="{{ path('app_logout') }}">Logout</a></li>
-    {% else %}
-        <li><a href="{{ path('app_login') }}">Conectare</a></li>
-    {% endif %}
+    {% include 'common/nav.html.twig' %}
 
-</ul>
+    {% block body %}{% endblock %}
 
+    {% include 'common/footer.html.twig' %}
 
-{% block body %}{% endblock %}
-
-{% include 'common/footer.html.twig' %}
-
-{{ encore_entry_script_tags('app') }}
-{{ encore_entry_script_tags('custom') }}
+    {{ encore_entry_script_tags('app') }}
+    {{ encore_entry_script_tags('custom') }}
 
 </body>
 </html>

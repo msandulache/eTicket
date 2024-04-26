@@ -17,4 +17,19 @@ class HomeController extends AbstractController
             'movies' => $theMovieDataBase->getNowPlayingMovies(12)
         ]);
     }
+
+    #[Route('/movies', name: 'app_movies')]
+    public function movies(TheMovieDataBase $theMovieDataBase): Response
+    {
+        return $this->render('movies.html.twig', [
+            'movies' => $theMovieDataBase->getNowPlayingMovies(12)
+        ]);
+    }
+
+    #[Route('/contact', name: 'app_contact')]
+    public function contact(): Response
+    {
+        return $this->render('contact.html.twig', [
+        ]);
+    }
 }

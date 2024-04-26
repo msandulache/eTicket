@@ -59,7 +59,7 @@ if (seatContainer) {
                 movie: $('#movie').text()
             },
             success: function (data, status) {
-                window.document.location = '/stripe?booking_ref=' + data;
+                window.document.location = '/stripe/823464?booking_ref=' + data;
             },
             error: function (xhr, textStatus, errorThrown) {
                 alert('Checkout failed:' + errorThrown);

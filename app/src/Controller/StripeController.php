@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Api\TheMovieDataBase;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -10,15 +11,15 @@ use Stripe;
 
 class StripeController extends AbstractController
 {
-    #[Route('/stripe', name: 'app_stripe')]
-    public function index(Request $request): Response
+    #[Route('/stripe/{id}', name: 'app_stripe')]
+    public function stripe(int $id, Request $request, TheMovieDataBase $theMovieDataBase): Response
     {
-        return $this->render('stripe/profile.html.twig', [
+        return $this->render('stripe/index.html.twig', [
             'stripe_key' => $_ENV["STRIPE_KEY"],
-            'booking_id' => $request->get('booking_ref')
+            'booking_id' => $request->get('booking_ref'),
+            'movie' => $theMovieDataBase->getMovie($id),
         ]);
     }
-
 
     #[Route('/stripe/create-charge', name: 'app_stripe_charge', methods: ['POST'])]
     public function createCharge(Request $request)

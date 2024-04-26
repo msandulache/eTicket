@@ -72,6 +72,7 @@ class TheMovieDataBase
         $movie['videos'] = $this->getVideos($id, 3);
         $movie['keywords'] = $this->getKeywords($id, 5);
         $movie['price'] = $this->calculatePrice($movie);
+        $movie['trailer'] = $this->getTrailer($id);
 
         return $movie;
     }
