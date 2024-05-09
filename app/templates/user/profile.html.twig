@@ -4,15 +4,26 @@
 
 {% block body %}
 
+
+    <div class="grid grid-cols-5 grid-rows-5 gap-4">
+        <div class="col-span-2">2</div>
+        <div class="col-span-3 col-start-3">6</div>
+    </div>
     <div class="overflow-hidden bg-white py-24 sm:py-32">
+
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
+
+
+
+
             <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
-                <div class="lg:pr-8 lg:pt-4">
+
+                <div>
                     <div class="lg:max-w-lg">
                         <p class="mt-2 text-2xl font-bold tracking-tight text-indigo-600 sm:text-2xl pb-6">Contul
                             meu</p>
                         <ul role="list" class="divide-y divide-gray-100">
-                            <li class="flex justify-between gap-x-6 py-5">
+                            <li class="flex justify-between gap-x-6">
                                 <div class="flex min-w-0 gap-x-4">
                                     <div class="min-w-0 flex-auto">
                                         <p class="text-sm font-semibold leading-6 text-gray-900 py-3"><a
@@ -20,7 +31,7 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="flex justify-between gap-x-6 py-5">
+                            <li class="flex justify-between gap-x-6">
                                 <div class="flex min-w-0 gap-x-4">
                                     <div class="min-w-0 flex-auto">
                                         <p class="text-sm font-semibold leading-6 text-gray-900 py-3">Rezervarile
@@ -28,14 +39,14 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="flex justify-between gap-x-6 py-5">
+                            <li class="flex justify-between gap-x-6">
                                 <div class="flex min-w-0 gap-x-4">
                                     <div class="min-w-0 flex-auto">
                                         <p class="text-sm font-semibold leading-6 text-gray-900 py-3">Biletele mele</p>
                                     </div>
                                 </div>
                             </li>
-                            <li class="flex justify-between gap-x-6 py-5">
+                            <li class="flex justify-between gap-x-6">
                                 <div class="flex min-w-0 gap-x-4">
                                     <div class="min-w-0 flex-auto">
                                         <p class="text-sm font-semibold leading-6 text-gray-900 py-3">Puncte Fidelizare
@@ -43,14 +54,14 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="flex justify-between gap-x-6 py-5">
+                            <li class="flex justify-between gap-x-6">
                                 <div class="flex min-w-0 gap-x-4">
                                     <div class="min-w-0 flex-auto">
                                         <p class="text-sm font-semibold leading-6 text-gray-900 py-3">Schimba parola</p>
                                     </div>
                                 </div>
                             </li>
-                            <li class="flex justify-between gap-x-6 py-5">
+                            <li class="flex justify-between gap-x-6">
                                 <div class="flex min-w-0 gap-x-4">
                                     <div class="min-w-0 flex-auto">
                                         <p class="text-sm font-semibold leading-6 text-gray-900 py-3"><a
@@ -62,7 +73,7 @@
                         </ul>
                     </div>
                 </div>
-                <div>
+                <div class="lg:pr-8 lg:pt-4">
                     {% for message in app.flashes('success') %}
                         <div class="flash-notice">
                             <p class="mt-2 font-bold tracking-tight text-indigo-600 pb-6">{{ message }}</p>

@@ -35,126 +35,124 @@
                     </div>
                 </div>
 
-                <div class="lg:pr-8 lg:pt-4">
-                    <div class="lg:max-w-lg">
+                <div class="lg:max-w-lg">
 
-                        {% if movie['trailer'] is not empty %}
-                            <button class="js-modal-btn inline-flex cursor-pointer items-center rounded-md px-6 py-2 text-sm text-indigo-500 font-semibold shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 hover:text-gray-500"
-                                    data-video-id="{{ movie['trailer'] }}">
-                                <i class="fa-brands fa-youtube"></i>&nbsp;Trailer
-                            </button>
-                        {% endif %}
-
-                        <button type="button"
-                                class="inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-                            <i class="fa-regular fa-heart"></i>&nbsp;Adauga la wishlist
+                    {% if movie['trailer'] is not empty %}
+                        <button class="js-modal-btn inline-flex cursor-pointer items-center rounded-md px-6 py-2 text-sm text-indigo-500 font-semibold shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 hover:text-gray-500"
+                                data-video-id="{{ movie['trailer'] }}">
+                            <i class="fa-brands fa-youtube"></i>&nbsp;Trailer
                         </button>
+                    {% endif %}
 
-                        <h1 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">{{ movie['title'] }}</h1>
-                        <p class="text-3xl tracking-tight text-gray-900">19 lei</p>
+                    <button type="button"
+                            class="inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
+                        <i class="fa-regular fa-heart"></i>&nbsp;Adauga la wishlist
+                    </button>
 
-                        <div class="mt-6">
-                            <h3 class="sr-only">Reviews</h3>
+                    <h1 class="text-2xl mt-6 font-bold tracking-tight text-gray-900 sm:text-3xl">{{ movie['title'] }}</h1>
+                    <p class="text-3xl mt-6 tracking-tight text-gray-900">19 lei</p>
+
+                    <div class="mt-6">
+                        <h3 class="sr-only">Reviews</h3>
+                        <div class="flex items-center">
                             <div class="flex items-center">
-                                <div class="flex items-center">
-                                    <!-- Active: "text-gray-900", Default: "text-gray-200" -->
-                                    <svg class="{% if movie['vote_average'] >= 2 %}text-indigo-500{% else %}text-gray-300{% endif %} h-5 w-5 flex-shrink-0"
-                                         viewBox="0 0 20 20"
-                                         fill="currentColor" aria-hidden="true">
-                                        <path fill-rule="evenodd"
-                                              d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                                              clip-rule="evenodd"/>
-                                    </svg>
-                                    <svg class="{% if movie['vote_average'] >= 4 %}text-indigo-500{% else %}text-gray-300{% endif %} h-5 w-5 flex-shrink-0"
-                                         viewBox="0 0 20 20"
-                                         fill="currentColor" aria-hidden="true">
-                                        <path fill-rule="evenodd"
-                                              d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                                              clip-rule="evenodd"/>
-                                    </svg>
-                                    <svg class="{% if movie['vote_average'] >= 6 %}text-indigo-500{% else %}text-gray-300{% endif %} h-5 w-5 flex-shrink-0"
-                                         viewBox="0 0 20 20"
-                                         fill="currentColor" aria-hidden="true">
-                                        <path fill-rule="evenodd"
-                                              d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                                              clip-rule="evenodd"/>
-                                    </svg>
-                                    <svg class="{% if movie['vote_average'] >= 8 %}text-indigo-500{% else %}text-gray-300{% endif %} text-gray-300 h-5 w-5 flex-shrink-0"
-                                         viewBox="0 0 20 20"
-                                         fill="currentColor" aria-hidden="true">
-                                        <path fill-rule="evenodd"
-                                              d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                                              clip-rule="evenodd"/>
-                                    </svg>
-                                    <svg class="{% if movie['vote_average'] >= 10 %}text-indigo-500{% else %}text-gray-300{% endif %} text-gra h-5 w-5 flex-shrink-0"
-                                         viewBox="0 0 20 20"
-                                         fill="currentColor" aria-hidden="true">
-                                        <path fill-rule="evenodd"
-                                              d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                                              clip-rule="evenodd"/>
-                                    </svg>
+                                <!-- Active: "text-gray-900", Default: "text-gray-200" -->
+                                <svg class="{% if movie['vote_average'] >= 2 %}text-indigo-500{% else %}text-gray-300{% endif %} h-5 w-5 flex-shrink-0"
+                                     viewBox="0 0 20 20"
+                                     fill="currentColor" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                          d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                                          clip-rule="evenodd"/>
+                                </svg>
+                                <svg class="{% if movie['vote_average'] >= 4 %}text-indigo-500{% else %}text-gray-300{% endif %} h-5 w-5 flex-shrink-0"
+                                     viewBox="0 0 20 20"
+                                     fill="currentColor" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                          d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                                          clip-rule="evenodd"/>
+                                </svg>
+                                <svg class="{% if movie['vote_average'] >= 6 %}text-indigo-500{% else %}text-gray-300{% endif %} h-5 w-5 flex-shrink-0"
+                                     viewBox="0 0 20 20"
+                                     fill="currentColor" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                          d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                                          clip-rule="evenodd"/>
+                                </svg>
+                                <svg class="{% if movie['vote_average'] >= 8 %}text-indigo-500{% else %}text-gray-300{% endif %} text-gray-300 h-5 w-5 flex-shrink-0"
+                                     viewBox="0 0 20 20"
+                                     fill="currentColor" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                          d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                                          clip-rule="evenodd"/>
+                                </svg>
+                                <svg class="{% if movie['vote_average'] >= 10 %}text-indigo-500{% else %}text-gray-300{% endif %} text-gra h-5 w-5 flex-shrink-0"
+                                     viewBox="0 0 20 20"
+                                     fill="currentColor" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                          d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                                          clip-rule="evenodd"/>
+                                </svg>
 
-                                </div>
-                                <p class="ms-1 text-sm font-medium text-gray-500 hover:text-gray-400">{{ movie['vote_average']|number_format(1) }}
-                                    /10</p>
-                                <p class="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">{{ movie['vote_count'] }}
-                                    voturi</p>
                             </div>
+                            <p class="ms-1 text-sm font-medium text-gray-500 hover:text-gray-400">{{ movie['vote_average']|number_format(1) }}
+                                /10</p>
+                            <p class="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">{{ movie['vote_count'] }}
+                                voturi</p>
                         </div>
-
-                        <div class="space-y-6">
-                            <p class="text-base text-gray-900">{{ movie['overview'] }}</p>
-                        </div>
-
-                        <div class="mt-10">
-                            <h3 class="text-sm font-medium text-gray-900">Actori:</h3>
-
-                            <div class="mt-4">
-                                <ul role="list" class="list-disc space-y-2 pl-4 text-sm">
-                                    {% for actor in movie['cast'] %}
-                                        {% if actor['profile_path'] is not empty %}
-                                            <li class="text-gray-400 pb-2">
-                                                <img
-                                                        class="inline object-cover h-10 w-10 rounded-full"
-                                                        src="https://image.tmdb.org/t/p/w92/{{ actor['profile_path'] }}"
-                                                        alt="{{ actor['name'] }}"/>
-                                                <span class="text-gray-600">
-                                                            {{ actor['name'] }}
-                                                        </span>
-                                            </li>
-                                        {% endif %}
-                                    {% endfor %}
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="mt-10">
-                            <h2 class="text-sm font-medium text-gray-900">Genuri:</h2>
-
-                            <div class="mt-4 space-y-6">
-                                <p class="text-sm text-gray-600">
-                                    {% for genre in movie['genres'] %}
-                                        {{ genre.name }}{% if not loop.last %}, {% endif %}
-                                    {% endfor %}
-                                </p>
-                            </div>
-                        </div>
-                        <div class="mt-10">
-                            <h2 class="text-sm font-medium text-gray-900">Cuvinte cheie:</h2>
-
-                            <div class="mt-4 space-y-6">
-                                <p class="text-sm text-gray-600">
-                                    {% for keyword in movie['keywords'] %}
-                                        {{ keyword['name'] }}{% if not loop.last %}, {% endif %}
-                                    {% endfor %}
-                                </p>
-                            </div>
-                        </div>
-                        <a href="/seats/{{ movie.id }}"
-                           class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-                            Cumpara
-                        </a>
                     </div>
+
+                    <div class="space-y-6 mt-6">
+                        <p class="text-base text-gray-900">{{ movie['overview'] }}</p>
+                    </div>
+
+                    <div class="mt-10">
+                        <h3 class="text-sm font-medium text-gray-900">Actori principali:</h3>
+
+                        <div class="mt-4">
+                            <ul role="list" class="space-y-2 pl-4 text-sm">
+                                {% for actor in movie['cast'] %}
+                                    {% if actor['profile_path'] is not empty %}
+                                        <li class="text-gray-400 pb-2">
+                                            <img
+                                                    class="inline object-cover h-10 w-10 rounded-full"
+                                                    src="https://image.tmdb.org/t/p/w92/{{ actor['profile_path'] }}"
+                                                    alt="{{ actor['name'] }}"/>
+                                            <span class="text-gray-600">
+                                                        {{ actor['name'] }}
+                                                    </span>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="mt-10">
+                        <h2 class="text-sm font-medium text-gray-900">Genuri:</h2>
+
+                        <div class="mt-2 space-y-6">
+                            <p class="text-sm text-gray-600">
+                                {% for genre in movie['genres'] %}
+                                    {{ genre.name }}{% if not loop.last %}, {% endif %}
+                                {% endfor %}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="mt-10">
+                        <h2 class="text-sm font-medium text-gray-900">Cuvinte cheie:</h2>
+
+                        <div class="mt-2 space-y-6">
+                            <p class="text-sm text-gray-600">
+                                {% for keyword in movie['keywords'] %}
+                                    {{ keyword['name'] }}{% if not loop.last %}, {% endif %}
+                                {% endfor %}
+                            </p>
+                        </div>
+                    </div>
+                    <a href="/seats/{{ movie.id }}"
+                       class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                        Cumpara
+                    </a>
                 </div>
             </div>
         </div>

@@ -68,7 +68,7 @@ class TheMovieDataBase
         $movie['backdrop_path'] = $this->images_base_url . $this->original_poster_size . $movie['backdrop_path'];
         $movie['genres'] = array_slice($movie['genres'], 0, 5);
         $movie['externalIds'] = $this->getExternalIds($id);
-        $movie['cast'] = $this->getCast($id, 5);
+        $movie['cast'] = $this->getCast($id, 4);
         $movie['videos'] = $this->getVideos($id, 3);
         $movie['keywords'] = $this->getKeywords($id, 5);
         $movie['price'] = $this->calculatePrice($movie);

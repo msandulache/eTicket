@@ -15,21 +15,22 @@ if (seatContainer) {
             columns: 10,
             seatTypes: {
                 default: {
-                    label: 'Economy',
+                    label: 'Normal',
                     cssClass: 'economy',
                     price: 15,
                 },
                 first: {
-                    label: 'First Class',
+                    label: 'VIP',
                     cssClass: 'first-class',
                     price: 25,
-                    seatRows: [0, 1, 2],
+                    seatRows: [0, 1, 2]
                 },
                 reduced: {
-                    label: 'Reduced',
+                    label: 'Redus',
                     cssClass: 'reduced',
                     price: 10,
                     seatRows: [7, 8, 9],
+                    currencySign: 'Lei'
                 },
             },
             disabledSeats: [
@@ -43,7 +44,14 @@ if (seatContainer) {
             selectedSeats: [{row: 0, col: 5}, {row: 0, col: 6}],
             rowSpacers: [3, 7],
             columnSpacers: [5],
+            cart: {
+                submitLabel: 'sdf'
+            }
         },
+        cart:{
+            submitLabel: 'Cumpara',
+            currency: 'Lei '
+        }
     };
 
     var sc = new Seatchart(seatContainer, options);
